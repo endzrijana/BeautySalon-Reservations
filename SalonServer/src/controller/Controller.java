@@ -18,9 +18,8 @@ import operation.clients.KreirajKlijentSO;
 import operation.clients.PromeniKlijentSO;
 import operation.clients.ObrisiKlijentSO;
 import operation.clients.PretraziKlijentSO;
-import operation.clients.VratiListuKlijentSO;
 import operation.clients.UcitajTipoveKlijenataSO;
-import operation.clients.VratiListuKlijentKritSO;
+import operation.clients.VratiListuKlijentSO;
 import operation.kozmeticar.ObrisiKozmeticarSO;
 import operation.kozmeticar.VratiListuKozmeticarSO;
 import operation.login.PrijaviKozmeticarSO;
@@ -28,7 +27,6 @@ import operation.potvrdaRezervacije.KreirajPotvrdaRezervacijaSO;
 import operation.potvrdaRezervacije.PromeniPotvrdaRezervacijeSO;
 import operation.potvrdaRezervacije.ObrisiPotvrduRezervacijeSO;
 import operation.potvrdaRezervacije.PretraziPotvrdaRezervacijeSO;
-import operation.potvrdaRezervacije.VratiListuPotvrdaRezervacijeKritSO;
 import operation.potvrdaRezervacije.VratiListuPotvrdaRezervacijeSO;
 import operation.services.KreirajUslugaSO;
 import operation.services.ObrisiUslugaSO;
@@ -63,8 +61,8 @@ public class Controller {
     public List<Klijent> loadClients() throws Exception {
         VratiListuKlijentSO operation = new VratiListuKlijentSO();
         operation.execute(null, null);
-        System.out.println("Class controller: " + operation.getClients());
-        return operation.getClients();
+        System.out.println("Class controller: " + operation.getLista());
+        return operation.getLista();
     }
 
     public void obrisiKlijenta(Klijent kl) throws Exception {
@@ -93,11 +91,9 @@ public class Controller {
     public List<PotvrdaRezervacije> ucitajRezervacije() throws Exception {
         VratiListuPotvrdaRezervacijeSO operation = new VratiListuPotvrdaRezervacijeSO();
         operation.execute(null, null);
-        System.out.println("Class Controller:" + operation.getRezervacije());
-        return operation.getRezervacije();
+        System.out.println("Class Controller:" + operation.getLista());
+        return operation.getLista();
     }
-
-    
 
     public void obrisiPotvrduRezervacije(PotvrdaRezervacije pre) throws Exception {
         ObrisiPotvrduRezervacijeSO operation = new ObrisiPotvrduRezervacijeSO();
@@ -161,13 +157,13 @@ public class Controller {
     }
 
     public List<PotvrdaRezervacije> ucitajPotvrde(Object param) throws Exception {
-        VratiListuPotvrdaRezervacijeKritSO operation = new VratiListuPotvrdaRezervacijeKritSO();
+        VratiListuPotvrdaRezervacijeSO operation = new VratiListuPotvrdaRezervacijeSO();
         operation.execute(param, null);
         return operation.getLista();
     }
 
     public List<Klijent> ucitajKlijenteKrit(Object param) throws Exception {
-        VratiListuKlijentKritSO operation = new VratiListuKlijentKritSO();
+        VratiListuKlijentSO operation = new VratiListuKlijentSO();
         operation.execute(param, null);
         return operation.getLista();
     }

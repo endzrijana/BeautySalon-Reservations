@@ -81,7 +81,7 @@ public class DbRepositoryGeneric implements DbRepository<AbstractDomainObject> {
     }
 
     @Override
-    public List<AbstractDomainObject> getAll() {//TODO
+    public List<AbstractDomainObject> getAll() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
